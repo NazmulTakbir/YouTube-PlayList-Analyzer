@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="#dae1e7"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#E4E4E4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/processing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="176dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="176dp"
+                android:layout_marginBottom="7dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/URL"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/URL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="7dp"
+                android:ems="10"
+                android:hint="YouTube PlayList URL"
+                android:inputType="textPersonName"
+                android:shadowColor="#532F87"
+                android:textColor="#050505"
+                android:textColorHighlight="#5bc0de"
+                android:textColorLink="#673AB7"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/processing" />
+
+            <LinearLayout
+                android:id="@+id/buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/URL">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="85"
+                    android:background="@drawable/rounded_button_purple"
+                    android:fontFamily="sans-serif-medium"
+                    android:onClick="getTime"
+                    android:paddingLeft="10dip"
+                    android:paddingTop="5dip"
+                    android:paddingRight="10dip"
+                    android:paddingBottom="5dip"
+                    android:text="Analyze"
+                    android:textColor="#f7f7f7"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="clearEntry"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="Clear"
+                    android:textColor="#f7f7f7"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="13dp"
+                android:textColor="#142850"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/totalVideos"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttons" />
+
+            <TextView
+                android:id="@+id/totalVideos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:textColor="#142850"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/averageLength"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/time" />
+
+            <TextView
+                android:id="@+id/averageLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:textColor="#142850"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/speed1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalVideos" />
+
+            <TextView
+                android:id="@+id/speed1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:textColor="#142850"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/speed2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/averageLength" />
+
+            <TextView
+                android:id="@+id/speed2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:textColor="#142850"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/speed3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/speed1" />
+
+            <TextView
+                android:id="@+id/speed3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:textColor="#142850"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/speed4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/speed2" />
+
+            <TextView
+                android:id="@+id/speed4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:textColor="#142850"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/speed3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
